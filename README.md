@@ -1,5 +1,5 @@
 
-# absDNN
+# absDL
 
 In this repository we arranged the required elements for training a deep network to deploy single-shot 
 absorption imaging in your lab.
