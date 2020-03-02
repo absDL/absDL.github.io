@@ -35,7 +35,7 @@ Even if it not the case you can follow its lines to understand how we normalized
 training and testing sets for your data.
 
 ### Original dataset:
-The dataset used in the paper can be downloaded from [here](https://www.dropbox.com/wait4it). We use 
+The dataset used in the paper can be downloaded from [here](https://www.dropbox.com/s/dg7y000rmicc8ed/single_shot_dataset.tar?dl=0). We use 
 constant normalization for all frames to adjust the log images and store them in separate TIFF files.
 In our experimental setup the camera is installed from beneath the vacuum chamber. Therefore, to focus 
 the image on the free-falling atoms, the imaging system was manually shifted to follow the gravitational-
