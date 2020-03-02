@@ -1,0 +1,4 @@
+# list here all folders of frames WITH ATOMS - for inference
+C:/datasets/single_shot_a3_16_b_m13_16_32bit/A_with_atoms/
+#
+# terminate each line with '/'

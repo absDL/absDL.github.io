@@ -1,0 +1,8 @@
+# list here all folders of frames WITHOUT ATOMS - for training
+C:/datasets/single_shot_a3_16_b_m13_16_32bit/R_no_atoms/
+C:/datasets/single_shot_a3_16_b_m13_16_32bit/A_no_atoms/
+# these are also without atoms (they are the refernce frame of doubly-expused images)
+C:/datasets/single_shot_a3_16_b_m13_16_32bit/R_with_atoms/
+C:/datasets/single_shot_a3_16_b_m13_16_32bit/R_leftovers/
+#
+# terminate each line with '/'
