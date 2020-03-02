@@ -10,7 +10,7 @@ from the paper:
 
 [Single-exposure absorption imaging of ultracold atoms using deep learning](https://arxiv.org/abs/wait4it)
 
-(atoms_examples.png)
+![Infrence examples](atoms_examples.png)
 
 Here we provide hyperparameters and architecture that were used to generate the results in the paper. 
 Most of them were crudely optimized for the Technion ultracold fermions lab apparatus and will need 
@@ -18,7 +18,8 @@ variation in order to fit other use-cases. We encourage you to contribute your i
 
 ## Environment:
 #### 1. Using Anaconda recipe:
-Please follow the Anaconda recipe provided in this repo
+Please follow the Anaconda recipe provided in this repo.
+Download by clicking on "View on GitHub" on top or [here](https://github.com/absDL/absDL.github.io).
 
 #### 2. Using pip:
 * make sure that your virtual environment is installed with python 3.7
