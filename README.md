@@ -15,6 +15,9 @@ Here we provide hyperparameters and architecture that were used to generate the 
 Most of them were crudely optimized for the Technion ultracold fermions lab apparatus and will need 
 variation in order to fit other use-cases. We encourage you to contribute your insights to our project!
 
+absDNN repository is provided and maintained by Yoav Sagi’s [ultracold fermions research group](https://phsites.technion.ac.il/sagi/) from Technion – Israel Institute of Technology.
+
+
 ## Environment:
 #### 1. Using Anaconda recipe:
 Please follow the Anaconda recipe provided in this repo.
