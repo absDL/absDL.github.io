@@ -7,7 +7,7 @@ We provide a Matlab script to assist with correct handling of the training and p
 a python script for the network training. Both will enable you to reproduce the illustration figures 
 from the paper:
 
-[Single-exposure absorption imaging of ultracold atoms using deep learning](https://arxiv.org/abs/wait4it)
+[Single-exposure absorption imaging of ultracold atoms using deep learning](http://arxiv.org/abs/2003.01643)
 
 ![Infrence examples](atoms_examples.png)
 
