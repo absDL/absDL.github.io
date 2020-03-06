@@ -45,9 +45,6 @@ def train_model(args, outL, mask, model, trainList, valList, epochNum, reference
 
     trainBatches = len(trainList) // batch_size
     valBatches = len(valList) // batch_size
-    
-    if not os.path.isdir('models'):
-        os.mkdir ('models')
 
     while epochNum <= max_epochs:
         shufTrain = np.arange(len(trainList))
