@@ -18,6 +18,9 @@ def npGenerator(dirs, ord, inL, outL,mask):
     return X, Y
 
 def initialize_model(model):
+    if not os.path.isdir('models'):
+        os.mkdir ('models')
+    
     modelsList = [os.path.join('./models/', each) for each in os.listdir('./models/') if each.endswith('.h5')]  # we list the model files
     if not len(modelsList):
         print('strarting from scratch')
