@@ -24,7 +24,7 @@ Please follow the Anaconda recipe provided in this repo.
 Download by clicking on "View on GitHub" on top or [here](https://github.com/absDL/absDL.github.io).
 
 #### 2. Using pip:
-* make sure that your virtual environment is installed with python 3.7
+* make sure that your virtual environment is installed with python 3.7 or 3.6.8
 * make sure your pip is pointing on your venv interpreter: <venv_location/bin/pip>
 * on the project directory type in:
 ```
