@@ -9,7 +9,7 @@ from the paper:
 
 [Single-exposure absorption imaging of ultracold atoms using deep learning](http://arxiv.org/abs/2003.01643)
 
-![Infrence examples](atoms_examples.pdf)
+![Infrence examples](atoms_examples.png)
 
 Here we provide hyperparameters and architecture that were used to generate the results in the paper. 
 Most of them were crudely optimized for the Technion ultracold fermions lab apparatus and will need 
