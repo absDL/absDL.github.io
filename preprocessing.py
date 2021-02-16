@@ -7,10 +7,24 @@ from sklearn.model_selection import train_test_split
 
 
 def replaceLast(s, old, new): # just a small helper function - replace last iteration of a pattern in a string
+	'''
+	replace last iteration of a pattern in a string
+	:param s: str, string
+	:param old: str, old ending
+	:param new: str, new ending
+	:return: str, string with the new ending
+	'''
+	
     li = s.rsplit(old, 1)
     return new.join(li)
 
 def read_dirs_from_txt_files(txt_file_path):
+	'''
+	Reads a txt file and returns the valid directories
+	:param txt_file_path: str, path to textfile
+	:return: list, valid dataset directories
+	'''
+	
     lines = [line.strip('\n') for line in open(txt_file_path)]
 
     valid_ds = []
@@ -31,6 +45,12 @@ def read_dirs_from_txt_files(txt_file_path):
     return valid_ds
 
 def extract_imags_from_ds(txt_file_path):
+	'''
+	Lists images from dataset dirs written in txt files
+	:param txt_file_path: str, path to txt file
+	:return: list, containing the image paths
+	'''
+	
     ds_list = read_dirs_from_txt_files(txt_file_path)
     if len(ds_list)==0:
         print('No valid datasets in .txt file: ' + txt_file_path)
@@ -48,7 +68,16 @@ def extract_imags_from_ds(txt_file_path):
     return imList
 
 def get_train_test_list(inL, centerVer, centerHor):
-
+	'''
+	Creating the train-validation and the test lists from their respective datasets
+	:param inL: int, UNETs input image size [px]
+	:param centerVer: int, vertical center of the desired area
+	:param centerHor: int, horizontal center of the desired area
+	:return:
+	inList: list, containing image paths for the training and validation set
+	testList: list, containing image paths for the test set
+	'''
+	
     print('Extracting images WITHOUT atoms (for training and validation)')
     inList = extract_imags_from_ds('./woAtoms_ds.txt')
     print('Extracting images WITH atoms (for testing)')
@@ -83,6 +112,14 @@ def get_train_test_list(inL, centerVer, centerHor):
     return inList, testList
 
 def save_lists(trainList, valList, testList):
+	'''
+	Saves datasets as lists in order to save the preprocessing time after the script's first run
+	:param trainList: list, containing image paths for the training set
+	:param valList: list, containing image paths for the validation set
+	:param testList: list, containing image paths for the test set
+	:return:
+	'''
+	
     print('number of samples without Atoms= ' + str(len(trainList)+len(valList)))
     print('number of samples with Atoms= ' + str(len(testList)))
     with open("training.lst", "w") as f:
@@ -98,7 +135,17 @@ def save_lists(trainList, valList, testList):
     return
 
 def prepare_datasets(args, val_ratio):
-
+	'''
+	Prepares the datasets for training the UNET architecture. If there are saved datasets they will be used,
+	if not they will be generated from the txtfiles containing the dir paths
+	:param args: args, script arguments as described in the parser function
+	:param val_ratio: float, validation ratio out of the train-val set
+	:return:
+	trainList: list, containing image paths for the training set
+	valList: list, containing image paths for the validation set
+	testList: list, containing image paths for the test set
+	'''
+	
     if os.path.exists('./training.lst') and os.path.exists('./validation.lst') and os.path.exists('./testWatoms.lst'):
         # 1st priority
         print('Taking data from pre-saved lists')

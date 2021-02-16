@@ -5,6 +5,18 @@ from tqdm import tqdm
 
 
 def npGenerator(dirs, ord, inL, outL,mask):
+	'''
+	Generates X Y pairs of batches of the masked images and their correspondent GT
+	:param dirs: list, containing image paths of the dataset
+	:param ord: list, indices of the desired images
+	:param inL: int, UNETs input image size [px]
+	:param outL: int, UNETs output size [px]
+	:param mask: binary 2D np.array, mask of the OD image with zeros on the target area
+	:return:
+	X: np.array, the masked input image
+	Y: np.array, the target image (or the unmasked input image)
+	'''
+	
     X = np.empty([len(ord), inL, inL])
     Y = np.empty([len(ord), outL, outL])
     for i in range(len(ord)):
@@ -18,6 +30,16 @@ def npGenerator(dirs, ord, inL, outL,mask):
     return X, Y
 
 def initialize_model(model):
+	'''
+	Initializes the model, either from scratch or from previous checkpoint
+	:param model: the UNET model
+	:return:
+	model: model, the UNET model with weights loaded from the latest checkpoint
+	epochNum: int, epoch number from the latest checkpoint
+	trainLoss: array or array-like object, training loss from the latest checkpoint
+	valLoss: array or array-like object, validation loss from the latest checkpoint
+	'''
+
     if not os.path.isdir('models'):
         os.mkdir ('models')
     
@@ -38,6 +60,15 @@ def initialize_model(model):
     return model, epochNum, trainLoss, valLoss
 
 def generate_referance_loss(inL, outL, trainList, valList):
+	'''
+	Generates the reference loss for the experiment
+	:param inL: int, UNETs input image size [px]
+	:param outL: int, UNETs output size [px]
+	:param trainList: list, containing image paths for the training set
+	:param valList: list, containing image paths for the validation set
+	:return: np.array, containing the reference MSE for the experiment
+	'''
+	
     if os.path.exists(os.getcwd() + '/referenceMSEtrainA.npy'):
         trainAloss = np.load('referenceMSEtrainA.npy')
         trainRloss = np.load('referenceMSEtrainR.npy')

@@ -7,6 +7,13 @@ from keras.layers.merge import concatenate
 from keras.models import Model
 
 def unet_model(inL, outL):
+	'''
+	Builds a 4-story UNET model
+	:param inL: int, UNETs input image size [px]
+	:param outL: int, UNETs output size [px]
+	:return: model, the UNET model
+	'''
+	
     d1 = 64
     d2 = 128
     d3 = 256
