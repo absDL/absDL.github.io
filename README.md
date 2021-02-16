@@ -44,7 +44,7 @@ In our experimental setup the camera is installed from beneath the vacuum chambe
 the image on the free-falling atoms, the imaging system was manually shifted to follow the gravitational-
 induced position of the atoms. This introduced a variation of the noise patterns between sets of images, 
 which was otherwise quite limited.
-A small (10MBs) sample from our dataset can be found [here](https://www.dropbox.com/s/u5h6o5hd8kzaohh/miniset.tar?dl=0).
+A small (10MBs) sample from our dataset is provided directly in the GitHub repository, under /miniset/.
 
 ## Training:
 You can simply run 'main.py' after referencing to the datasets with and without atoms in 'wAtoms_ds.txt'
