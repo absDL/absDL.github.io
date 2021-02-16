@@ -13,19 +13,19 @@ from unet import unet_model
 K.set_image_data_format('channels_last')
 
 def infer_single_img(inL, outL, mask, model, img_path):
-	'''
-	Makes a prediction using the current model on a single input image
-	:param inL: int, UNETs input image size [px]
-	:param outL: int, UNETs output size [px]
-	:param mask: binary 2D np.array, mask of the OD image with zeros on the target area
-	:param model: model, the trained UNET model
-	:param img_path: str, path for the input image
-	:return:
-	X: np.array, the masked input image
-	Y_prime: np.array, the predicted image
-	Y: np.array, the target image (or the unmasked input image)
-	'''
-	
+    '''
+    Makes a prediction using the current model on a single input image
+    :param inL: int, UNETs input image size [px]
+    :param outL: int, UNETs output size [px]
+    :param mask: binary 2D np.array, mask of the OD image with zeros on the target area
+    :param model: model, the trained UNET model
+    :param img_path: str, path for the input image
+    :return:
+    X: np.array, the masked input image
+    Y_prime: np.array, the predicted image
+    Y: np.array, the target image (or the unmasked input image)
+    '''
+    
     OD_image = np.array(np.array(io.imread(img_path)), dtype=np.dtype('float32')) / 4294967295
     Y = OD_image[int(inL / 2 - outL / 2):int(inL / 2 + outL / 2),
         int(inL / 2 - outL / 2):int(inL / 2 + outL / 2)]
@@ -38,13 +38,13 @@ def infer_single_img(inL, outL, mask, model, img_path):
 
 
 def save_tif(tif_path, tif_data):
-	'''
-	Saves an image as a .tif image
-	:param tif_path: str, output path for the .tif images
-	:param tif_data: np.array, array with the normalized image data
-	:return:
-	'''
-	
+    '''
+    Saves an image as a .tif image
+    :param tif_path: str, output path for the .tif images
+    :param tif_data: np.array, array with the normalized image data
+    :return:
+    '''
+    
     T = np.array(tif_data*4294967295, dtype=np.dtype('uint32'))
     imageio.imwrite(tif_path, T)
     
@@ -52,13 +52,13 @@ def save_tif(tif_path, tif_data):
 
 
 def save_bin(bin_path, bin_data):
-	'''
-	Saves prediction bin
-	:param bin_path: str, path for the bin to be save
-	:param bin_data: np.array, prediction data
-	:return:
-	'''
-	
+    '''
+    Saves prediction bin
+    :param bin_path: str, path for the bin to be save
+    :param bin_data: np.array, prediction data
+    :return:
+    '''
+    
     output_file = open(bin_path, 'wb')
     bin_data.tofile(output_file)
     output_file.close()
@@ -66,21 +66,21 @@ def save_bin(bin_path, bin_data):
     return
 
 def train_model(args, outL, mask, model, trainList, valList, epochNum, referenceMSE, trainLoss, valLoss):
-	'''
-	Trains the UNET model using our arguments and data objects
-	:param args: args, script arguments as described in the parser function
-	:param outL: int, UNETs output size [px]
-	:param mask: binary 2D np.array, mask of the OD image with zeros on the target area
-	:param model: model, the trained UNET model
-	:param trainList: list, containing image paths for the training set
-	:param valList: list, containing image paths for the validation set
-	:param epochNum: int, current epoch number
-	:param referenceMSE: array or array-like object, containing the reference MSE for the experiment
-	:param trainLoss: array or array-like object, training loss
-	:param valLoss: array or array-like object, validation loss
-	:return: model, the UNET model trained for args.max_epochs
-	'''
-	
+    '''
+    Trains the UNET model using our arguments and data objects
+    :param args: args, script arguments as described in the parser function
+    :param outL: int, UNETs output size [px]
+    :param mask: binary 2D np.array, mask of the OD image with zeros on the target area
+    :param model: model, the trained UNET model
+    :param trainList: list, containing image paths for the training set
+    :param valList: list, containing image paths for the validation set
+    :param epochNum: int, current epoch number
+    :param referenceMSE: array or array-like object, containing the reference MSE for the experiment
+    :param trainLoss: array or array-like object, training loss
+    :param valLoss: array or array-like object, validation loss
+    :return: model, the UNET model trained for args.max_epochs
+    '''
+    
     inL = args.inL
     max_epochs = args.max_epochs
     batch_size = args.batch_size
@@ -125,13 +125,13 @@ def train_model(args, outL, mask, model, trainList, valList, epochNum, reference
     return model
 
 def generate_mask(inL, maskR):
-	'''
-	Generates a negative central radial mask to conceal a specified area in the OD image
-	:param inL: int, UNETs input image size [px]
-	:param maskR: int, the mask radius [px]
-	:return: binary np.array, negative central radial mask of inLXinL size and blackened circle of maskR radius
-	'''
-	
+    '''
+    Generates a negative central radial mask to conceal a specified area in the OD image
+    :param inL: int, UNETs input image size [px]
+    :param maskR: int, the mask radius [px]
+    :return: binary np.array, negative central radial mask of inLXinL size and blackened circle of maskR radius
+    '''
+    
     scale = np.arange(inL)
     mask = np.zeros((inL, inL))
     mask[(scale[np.newaxis, :] - (inL - 1) / 2) ** 2 + (scale[:, np.newaxis] - (inL - 1) / 2) ** 2 > maskR ** 2] = 1
@@ -139,11 +139,11 @@ def generate_mask(inL, maskR):
     return mask
 
 def get_parser():
-	'''
-	Generates an argument parser object
-	:return: args, argument parser
-	'''
-	
+    '''
+    Generates an argument parser object
+    :return: args, argument parser
+    '''
+    
     parser = argparse.ArgumentParser(description='Single-Shot Absorption Imaging of Ultracold Atoms '
                                                  'Using Deep-Neural-Network')
     parser.add_argument('-il', '--inL', default=476, type=int, help='UNETs input image size [px]')

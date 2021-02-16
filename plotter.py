@@ -2,15 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def plot_single_comparison(X, Y_tag, Y, ref):
-	'''
-	Plots a single comparison between the prediction and target
-	:param X: np.array, the masked input image
-	:param Y_tag: np.array, the predicted image
-	:param Y: np.array, the target image (or the unmasked input image)
-	:param ref: np.array, the reference image
-	:return:
-	'''
-	
+    '''
+    Plots a single comparison between the prediction and target
+    :param X: np.array, the masked input image
+    :param Y_tag: np.array, the predicted image
+    :param Y: np.array, the target image (or the unmasked input image)
+    :param ref: np.array, the reference image
+    :return:
+    '''
+    
     fig = plt.figure(figsize=(15, 15))
     fig.set_facecolor('white')
     plt.subplot(2, 2, 1)
@@ -37,14 +37,14 @@ def plot_single_comparison(X, Y_tag, Y, ref):
 
 
 def plot_log(train_loss, val_loss, referenceMSE):
-	'''
-	Plots the log curve of the loss function
-	:param train_loss: array or array-like object, training loss
-	:param val_loss: array or array-like object, validation loss
-	:param referenceMSE: array or array-like object, containing the reference MSE for the experiment
-	:return:
-	'''
-	
+    '''
+    Plots the log curve of the loss function
+    :param train_loss: array or array-like object, training loss
+    :param val_loss: array or array-like object, validation loss
+    :param referenceMSE: array or array-like object, containing the reference MSE for the experiment
+    :return:
+    '''
+    
     plt.semilogy(train_loss, label='train')
     plt.semilogy(val_loss, label='val')
     if referenceMSE is not None:
@@ -56,14 +56,14 @@ def plot_log(train_loss, val_loss, referenceMSE):
 
 
 def plot_log_log(train_loss, val_loss, referenceMSE):
-	'''
-	Plots the log-log curve of the loss function
-	:param train_loss: array or array-like object, training loss
-	:param val_loss: array or array-like object, validation loss
-	:param referenceMSE: array or array-like object, containing the reference MSE for the experiment
-	:return:
-	'''
-	
+    '''
+    Plots the log-log curve of the loss function
+    :param train_loss: array or array-like object, training loss
+    :param val_loss: array or array-like object, validation loss
+    :param referenceMSE: array or array-like object, containing the reference MSE for the experiment
+    :return:
+    '''
+    
     plt.loglog(train_loss, label='train')
     plt.loglog(val_loss, label='val')
     if referenceMSE is not None:
@@ -75,15 +75,15 @@ def plot_log_log(train_loss, val_loss, referenceMSE):
 
 
 def plot_runtime_error(epochNum, train_loss, val_loss, referenceMSE):
-	'''
-	Plots the continuous loss for the training loop
-	:param epochNum: int, the current epoch number
-	:param train_loss: array or array-like object, training loss
-	:param val_loss: array or array-like object, validation loss
-	:param referenceMSE: array or array-like object, containing the reference MSE for the experimen
-	:return:
-	'''
-	
+    '''
+    Plots the continuous loss for the training loop
+    :param epochNum: int, the current epoch number
+    :param train_loss: array or array-like object, training loss
+    :param val_loss: array or array-like object, validation loss
+    :param referenceMSE: array or array-like object, containing the reference MSE for the experimen
+    :return:
+    '''
+    
     fig = plt.figure(1)
     plt.clf()
     fig.set_facecolor('white')
