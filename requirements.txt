@@ -41,7 +41,7 @@ nbconvert==5.6.1
 nbformat==4.4.0
 networkx==2.4
 notebook==6.0.2
-numpy==1.16.3
+numpy==1.21.0
 pandocfilters==1.4.2
 parso==0.5.2
 pickleshare==0.7.5
