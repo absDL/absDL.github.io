@@ -1,4 +1,4 @@
 # list here all folders of frames WITH ATOMS - for inference
-/miniset/A_with_atoms/
+miniset/A_with_atoms/
 #
 # terminate each line with '/'

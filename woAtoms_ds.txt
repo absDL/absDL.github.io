@@ -1,8 +1,8 @@
 # list here all folders of frames WITHOUT ATOMS - for training
-/miniset/R_no_atoms/
-/miniset/A_no_atoms/
+miniset/R_no_atoms/
+miniset/A_no_atoms/
 # these are also without atoms (they are the refernce frame of doubly-expused images)
-/miniset/R_with_atoms/
-/miniset/R_leftovers/
+miniset/R_with_atoms/
+miniset/R_leftovers/
 #
 # terminate each line with '/'
