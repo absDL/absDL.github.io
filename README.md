@@ -15,7 +15,7 @@ Here we provide hyperparameters and architecture that were used to generate the 
 Most of them were crudely optimized for the Technion ultracold fermions lab apparatus and will require 
 some tunning to fit other use-cases. We encourage you to share your insights!
 
-absDNN repository is provided and maintained by Yoav Sagi’s [ultracold fermions research group](https://phsites.technion.ac.il/sagi/) from the Technion – Israel Institute of Technology.
+absDL repository is provided and maintained by Yoav Sagi’s [ultracold fermions research group](https://phsites.technion.ac.il/sagi/) from the Technion – Israel Institute of Technology.
 You are very welcome to use and contribute to it!
 
 ## Environment:
